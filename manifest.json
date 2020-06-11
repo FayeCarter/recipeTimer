@@ -3,6 +3,7 @@
   "version": "1.0",
   "description": "Calculate real recipe timings",
   "manifest_version": 2,
+  "permissions": ["activeTab", "tabs"],
   "content_scripts": [
     {
       "matches": ["https://www.bbcgoodfood.com/recipes/*"],

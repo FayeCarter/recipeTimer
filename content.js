@@ -13,45 +13,25 @@ function logTime () {
   let cook = document.querySelector(".recipe-details__cooking-time-cook").innerText
   let extra = document.querySelector(".recipe-details__cooking-time-full").innerText
 
-  let timing = {
-    "Prep": timeHash(prep),
-    "Cook": timeHash(cook),
-    "Extra": timeHash(extra)
-  }
+  timeHash(prep),
+  timeHash(cook),
+  timeHash(extra)
 
-  calculateMinutes()
-
-  console.log(timing)
-  console.log(`${hours} hours, ${minutes} minutes`)
+  chrome.runtime.sendMessage({
+    "time": minutes
+  });
 }
 
 function timeHash (string) {
-  let newTime = {}
   let time = string.replace( /[^\d\.]*/g, '')
 
   if(string.includes("MINS")) {
-    newTime["minutes"] = parseInt(time)
-    newTime["hrs"] = 0
+    minutes += parseInt(time)
   } 
   if(string.includes("hrs")) {
-    newTime["hrs"] = parseInt(time)
-    newTime["minutes"] = 0
+    minutes += parseInt(time * 60)
   }
-
-  totalTime(newTime)
-  return newTime
-}
-
-function totalTime (object) {
-  minutes += object.minutes
-  hours += object.hrs
-}
-
-function calculateMinutes() {
-  while (minutes > 60) {
-    hours += 1
-    minutes -= 60
-  }
+  return minutes
 }
 
 window.onload = highlightTime();
