@@ -20,7 +20,7 @@ The aim of this project is to design a chrome extension that will allow the user
 
 - [ ] Story 3
 ```
-As a User,
-So that I see the steps of the recipe,
-I the extension to highlight times on the page.
+  As a User,
+  So that I see the steps of the recipe,
+  I the extension to highlight times on the page.
 ```
