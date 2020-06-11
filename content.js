@@ -1,7 +1,9 @@
-let doc = document.body.innerHTML
+let doc = document.querySelector(".recipe-details__text").innerHTML
+let highlight = `<span style='background-color:rgba(255,0,0,0.3);'>$1$2$3</span>`
 
 function highlightTime (){
-  document.body.innerHTML = doc.replace(/(minutes)|(minute)|(mins)|(min)|(hours)|(hour)/gi, `<span style='background-color:rgba(255,0,0,0.3);'>$1$2$3$4$5$6</span>`)
+  document.querySelector(".recipe-details__text").innerHTML = doc.replace(/(mins)|(hours)|(hour)/gi, highlight)
 }
 
 window.onload = highlightTime();
+
