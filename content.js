@@ -1,5 +1,7 @@
 let doc = document.querySelector(".recipe-details__text").innerHTML
 let highlight = `<span style='background-color:rgba(255,0,0,0.3);'>$1$2$3</span>`
+let minutes = 0;
+let hours = 0;
 
 function highlightTime (){
   document.querySelector(".recipe-details__text").innerHTML = doc.replace(/(mins)|(hours)|(hour)/gi, highlight)
@@ -13,11 +15,11 @@ function logTime () {
 
   let timing = {
     "Prep": timeHash(prep),
-    "cook": timeHash(cook),
-    "extra": timeHash(extra)
+    "Cook": timeHash(cook),
+    "Extra": timeHash(extra)
   }
-
   console.log(timing)
+  console.log(`${hours} hours, ${minutes} minutes`)
 }
 
 function timeHash (string) {
@@ -26,10 +28,20 @@ function timeHash (string) {
 
   if(string.includes("MINS")) {
     newTime["minutes"] = parseInt(time)
-  } else if(string.includes("hrs")) {
+    newTime["hrs"] = 0
+  } 
+  if(string.includes("hrs")) {
     newTime["hrs"] = parseInt(time)
+    newTime["minutes"] = 0
   }
+  
+  totalTime(newTime)
   return newTime
+}
+
+function totalTime (object) {
+  minutes += object.minutes
+  hours += object.hrs
 }
 
 window.onload = highlightTime();
