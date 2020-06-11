@@ -18,6 +18,9 @@ function logTime () {
     "Cook": timeHash(cook),
     "Extra": timeHash(extra)
   }
+
+  calculateMinutes()
+
   console.log(timing)
   console.log(`${hours} hours, ${minutes} minutes`)
 }
@@ -34,7 +37,7 @@ function timeHash (string) {
     newTime["hrs"] = parseInt(time)
     newTime["minutes"] = 0
   }
-  
+
   totalTime(newTime)
   return newTime
 }
@@ -42,6 +45,13 @@ function timeHash (string) {
 function totalTime (object) {
   minutes += object.minutes
   hours += object.hrs
+}
+
+function calculateMinutes() {
+  while (minutes > 60) {
+    hours += 1
+    minutes -= 60
+  }
 }
 
 window.onload = highlightTime();
