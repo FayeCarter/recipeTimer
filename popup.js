@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   let time = new Date();
-  let mid = new Date();
   let end = new Date();
   let getTime = document.getElementById('get-times');
   let endTime = document.getElementById("end-time")
@@ -11,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function () {
   getTime.addEventListener('click', onclick, false)
 
   function onclick () {
-    
     chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       addMinutes(request.time)
       endTime.innerHTML = end.toLocaleTimeString()
@@ -19,9 +17,9 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function addMinutes (minutes) {
-    currentMinutes = mid.getMinutes()
-    newMinutes = (currentMinutes + minutes)
-    end.setMinutes(newMinutes)
+    currentTime = time.getMinutes()
+    newTime = (currentTime + minutes)
+    end.setMinutes(newTime)
     return end
   }
 
