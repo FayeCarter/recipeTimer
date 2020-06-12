@@ -7,11 +7,11 @@ The aim of this project is to design a chrome extension that will allow the user
 ![gif](/app.gif)
 
 The app is a work in progress, current issue to resolve:
-- [] the extension can only be opened while the page is loading. 
+- [ ] the extension can only be opened while the page is loading. 
 
 The next steps will be:
- - [] allow users to enter a start time and see what time they will finish
- - [] allow users to add end time to see what time they should start cooking
+- [ ] allow users to enter a start time and see what time they will finish
+- [ ] allow users to add end time to see what time they should start cooking
 
 ## How to install
 
