@@ -5,19 +5,16 @@ let minutes = 0;
   let cook = document.querySelector(".recipe-details__cooking-time-cook")
   let extra = document.querySelector(".recipe-details__cooking-time-full")
 
-  timeHash(prep),
-  timeHash(cook),
-  timeHash(extra)
+  calculateMinutes(prep),
+  calculateMinutes(cook),
+  calculateMinutes(extra)
 
   chrome.runtime.sendMessage({
     "time": minutes
   });
 })()
 
-
-
-
-function timeHash (html) {
+function calculateMinutes (html) {
   if (html !==null ) {
     text = html.innerText
     let time = text.replace( /[^\d\.]*/g, '')
@@ -31,5 +28,3 @@ function timeHash (html) {
   }
   return minutes
 }
-
-// window.onload = calculateTime();
