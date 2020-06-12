@@ -12,6 +12,7 @@
   ],
   "browser_action": {
     "default_title": "Recipe App",
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
   }
 }
